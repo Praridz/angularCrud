@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Person Name</label>
+        <input type="text" [(ngModel)]="person_name"  class="form-control" formControlName="person_name"/>
+      </div>
+      <div *ngIf="angForm.controls['person_name'].invalid && (angForm.controls['person_name'].dirty || angForm.controls['person_name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['person_name'].errors.required">
+          Person Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Business Name </label>
+        <input type="text" [(ngModel)]="business_name" class="form-control" formControlName="business_name" />
+      </div>
+      <div *ngIf="angForm.controls['business_name'].invalid && (angForm.controls['business_name'].dirty || angForm.controls['business_name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['business_name'].errors.required">
+          Person Business is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Business GST Number </label> <br>
+        <input type="number" [(ngModel)]="business_gst_number" formControlName="business_gst_number"/>
+      </div>
+      <div *ngIf="angForm.controls['business_gst_number'].invalid && (angForm.controls['business_gst_number'].dirty || angForm.controls['business_gst_number'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['business_gst_number'].errors.required">
+          Business GST Number is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="
+            editBusiness(person_name.value, business_name.value, business_gst_number.value)
+          " class="btn btn-primary">
+          Edit Business
+        </button>
+        <button (click)="deleteBusiness() " class="btn btn-primary" style="background-color:red;">
+          Delete Business
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

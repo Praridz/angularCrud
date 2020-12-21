@@ -1,0 +1,7 @@
+<div>
+  <ul *ngFor="let bs of business">
+    <li>
+      <a    style="background-color: ghostwhite;" [routerLink]="['/business/edit', bs._id]">     {{ bs.business_name }} </a>
+    </li>
+  </ul>
+</div>
